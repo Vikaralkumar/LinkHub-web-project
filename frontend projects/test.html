@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo with Background Image</title>
+<style>
+    .home-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linklist {
+  text-align: center;
+}
+
+.linklist li.hidden {
+  display: none;
+}
+
+.toggle-btn {
+    margin-left: 350px;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+</style>
+</head>
+<body>
+    <div class="home-category">
+        <ul class="linklist">
+          <li>sagar</li>
+          <li>vikaral</li>
+          <li>vicky</li>
+          <li>dhanu</li>
+          <li>aditya</li>
+          <li class="hidden">vik1</li>
+          <li class="hidden">vik2</li>
+          <li class="hidden">vik3</li>
+        </ul>
+        <button class="toggle-btn">More</button>
+      </div>
+      
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.querySelector('.toggle-btn');
+  const hiddenItems = document.querySelectorAll('.linklist li.hidden');
+
+  hiddenItems.forEach(item => {
+    item.style.display = 'none';
+  });
+
+  toggleBtn.addEventListener('click', function() {
+    hiddenItems.forEach(item => {
+      if (item.style.display === 'none' || item.style.display === '') {
+        item.style.display = 'list-item';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (this.textContent === 'More') {
+      this.textContent = 'Less';
+    } else {
+      this.textContent = 'More';
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
